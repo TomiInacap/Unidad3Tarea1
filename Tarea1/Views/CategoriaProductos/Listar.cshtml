@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Tarea1.Models.CategoriaProductos>
+
+@{
+    ViewBag.Title = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listar Categorias</h2>
+
+<div class="row">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Agregar
+    </button>
+
+</div>
+<br />
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th colspan="2">Acciones</th>
+            </tr>
+            @foreach (var cate in Model)
+            {
+                <tr>
+                    <td>@cate.Id</td>
+                    <td>@cate.Nombre</td>
+                    <td>@Html.ActionLink("Eliminar", "Eliminar/" + cate.Id, "CategoriaProductos")</td>
+                    <td>@Html.ActionLink("Modificar", "MostrarModificar/" + cate.Id, "CategoriaProductos")</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <form method="post" action="@Url.Action("Guardar", "CategoriaProductos")">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Nuevo CategoriaProductos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="idCategoriaProductos">ID CategoriaProductos</label>
+                        <input type="number" name="idCategoriaProductos" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" class="form-control" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <input type="submit" class="btn btn-primary" value="Guardar" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
