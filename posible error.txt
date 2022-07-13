@@ -1,0 +1,5 @@
+en mi pc yo tenia la autentificacion del sql server por Windows
+y en clases y el profe usa autentifacion por sql (no windows) con un "usuario" y una password
+
+en el caso de que de error crear el modelo desde la base de datos nuevamente y posiblemente cambiar las entidades (actualmente entity2) 
+pongan la 1 o si crean otra la 3.... eso es todo :)!
